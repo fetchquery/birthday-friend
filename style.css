@@ -1,0 +1,77 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 75%;
+    height: 50px;
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-right: 3px;
+
+    background-color: #cfdbe3;
+    border: none;
+    border-radius: 25px;
+}
+
+input[type="submit"] {
+    height: 100%;
+    aspect-ratio: 1;
+
+    background-color: #3baaeb;
+    border: none;
+    border-radius: 25px;
+}
+
+#chat {
+    width: 75%;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.req {
+    flex-direction: row-reverse;
+}
+
+.res {
+    flex-direction: row;
+}
+
+.content {
+    width: fit-content;
+
+    margin: 10px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 25px;
+    font-size: 25px;
+}
+
+.req>.content {
+    background-color: #3baaeb;
+}
+
+.res>.content {
+    background-color: #cfdbe3;
+}
