@@ -1,8 +1,9 @@
 import { Configuration, OpenAIApi } from "openai";
 
+const OPENAI_API_KEY = "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";
 const openai = new OpenAIApi(
     new Configuration({
-        apiKey: "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",
+        apiKey: OPENAI_API_KEY,
     })
 );
 
@@ -33,6 +34,10 @@ form.addEventListener("submit", async (event) => {
         top_p: 1,
         frequency_penalty: 0.5,
         presence_penalty: 0,
+    }, {
+        headers: {
+            "Authorization": `Bearer ${OPENAI_API_KEY}`
+        }
     });
     appendChat(res.data.choices[0].text, "res");
 });
