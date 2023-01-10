@@ -29,6 +29,7 @@ form.addEventListener("submit", async (event) => {
 
     input.value = "";
     appendChat(req, "req");
+    chat.scrollTo(0, chat.scrollHeight);
 
     const res = await openai.createCompletion({
         model: "text-davinci-003",
@@ -40,6 +41,7 @@ form.addEventListener("submit", async (event) => {
         presence_penalty: 0,
     });
     appendChat(res.data.choices[0].text, "res");
+    chat.scrollTo(0, chat.scrollHeight);
 });
 
 function appendChat(message, className) {
