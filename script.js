@@ -1,15 +1,19 @@
 import { Configuration, OpenAIApi } from "openai";
 
-const OPENAI_API_KEY = "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";
-const openai = new OpenAIApi(
-    new Configuration({
-        apiKey: OPENAI_API_KEY,
-    })
-);
-
+let openai;
 const form = document.querySelector("form");
 const input = document.querySelector(`input[type="text"]`);
 const chat = document.querySelector("#chat");
+const textarea = document.querySelector("textarea");
+
+textarea.addEventListener("change", () => {
+    openai = new OpenAIApi(
+        new Configuration({
+            apiKey: textarea.value,
+        })
+    );
+});
+
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -34,10 +38,6 @@ form.addEventListener("submit", async (event) => {
         top_p: 1,
         frequency_penalty: 0.5,
         presence_penalty: 0,
-    }, {
-        headers: {
-            "Authorization": `Bearer ${OPENAI_API_KEY}`
-        }
     });
     appendChat(res.data.choices[0].text, "res");
 });
